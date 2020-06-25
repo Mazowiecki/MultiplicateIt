@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8ee76cb726ac0f34c11eb300c12ddca8",
+    "revision": "e36d71e728d29f761157c5bcc6bd4600",
     "url": "/MultiplicateIt/index.html"
   },
   {
-    "revision": "ad1451ea1e219e8e4e05",
+    "revision": "74ca230d51209d11d383",
     "url": "/MultiplicateIt/static/css/main.934e14e6.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/MultiplicateIt/static/js/2.a39b87cd.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "ad1451ea1e219e8e4e05",
-    "url": "/MultiplicateIt/static/js/main.7e95ea0f.chunk.js"
+    "revision": "74ca230d51209d11d383",
+    "url": "/MultiplicateIt/static/js/main.51d58802.chunk.js"
   },
   {
     "revision": "c6b98aebca702e741b58",
