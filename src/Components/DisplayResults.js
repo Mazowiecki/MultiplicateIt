@@ -53,7 +53,7 @@ const DisplayResults = props => {
           <>
             <Grid item xs={3}><p>{`Operation nr ${index+1}:`}</p></Grid>
             <Grid item xs={3}><p>{`${result.numberOne} * ${result.numberTwo}`}</p></Grid>
-            <Grid item xs={3}><p className={(result.false ? 'false' : '')}>{result.false ? result.userResult === -1 ? 'no result': <del>{result.userResult}</del> : `   ${result.userResult}`}</p></Grid>
+            <Grid item xs={3}><p className={(result.false ? 'false' : '')}>{result.false ? result.userResult === -1 ? 'no result': <><del>{result.userResult}</del> {result.numberOne * result.numberTwo}</> : `   ${result.userResult}`}</p></Grid>
             <Grid item xs={3}><p>{`   ${result.points}`}</p></Grid>
           </>
         ))}
