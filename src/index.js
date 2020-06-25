@@ -18,6 +18,7 @@ ReactDOM.render(
             <BrowserRouter>
                 <Switch>
                   <Route exact path='/' component={Dashboard}/>
+                  <Route exact path='/MultiplicateIt' component={Dashboard}/>
                   <Route path='/game/:difficulty' component={Game}/>
                 </Switch>
             </BrowserRouter>
@@ -25,3 +26,4 @@ ReactDOM.render(
       </Provider>,
   document.getElementById('root')
 );
+

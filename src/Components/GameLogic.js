@@ -78,15 +78,12 @@ const GameLogic = props => {
   useEffect(() => {
     let roundHelper = round;
     if (showResults) {
-      console.log('2')
       roundHelper++;
     }
-    console.log(finalResults.length);
-    console.log(roundHelper-1);
     if ((finalResults.length != roundHelper-1)) {
-      console.log('now')
       setFinalResults(finalResults => [...finalResults, {numberOne: getOne, numberTwo: getTwo, userResult: -1, time: null}]);
     }
+    setUserResult('');
   }, [round, showResults]);
 
   const startCounter = () => {
