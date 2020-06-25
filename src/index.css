@@ -11,3 +11,36 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.buttonsContainer button {
+  margin: 0 5px;
+}
+
+.buttonsContainer a {
+ text-decoration: none;
+}
+
+.progress {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  height: 440px!important;
+  width: 400px!important;
+  z-index: 1;
+}
+
+.false {
+  color: red;
+}
+
+.saveButton {
+  margin-left: 10px;
+}
+
+.operation {
+  font-size: 30px;
+  font-weight: 800;
+  color: slateblue;
+}
