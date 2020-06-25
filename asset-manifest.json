@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/MultiplicateIt/static/css/main.934e14e6.chunk.css",
-    "main.js": "/MultiplicateIt/static/js/main.7c15100d.chunk.js",
-    "main.js.map": "/MultiplicateIt/static/js/main.7c15100d.chunk.js.map",
+    "main.js": "/MultiplicateIt/static/js/main.456bb9fc.chunk.js",
+    "main.js.map": "/MultiplicateIt/static/js/main.456bb9fc.chunk.js.map",
     "runtime-main.js": "/MultiplicateIt/static/js/runtime-main.f3980711.js",
     "runtime-main.js.map": "/MultiplicateIt/static/js/runtime-main.f3980711.js.map",
     "static/js/2.a39b87cd.chunk.js": "/MultiplicateIt/static/js/2.a39b87cd.chunk.js",
     "static/js/2.a39b87cd.chunk.js.map": "/MultiplicateIt/static/js/2.a39b87cd.chunk.js.map",
     "index.html": "/MultiplicateIt/index.html",
-    "precache-manifest.946bc9f6c97be588bb5ab6a810a640b2.js": "/MultiplicateIt/precache-manifest.946bc9f6c97be588bb5ab6a810a640b2.js",
+    "precache-manifest.6badf764dd2d11719d86157757fe111a.js": "/MultiplicateIt/precache-manifest.6badf764dd2d11719d86157757fe111a.js",
     "service-worker.js": "/MultiplicateIt/service-worker.js",
     "static/css/main.934e14e6.chunk.css.map": "/MultiplicateIt/static/css/main.934e14e6.chunk.css.map",
     "static/js/2.a39b87cd.chunk.js.LICENSE.txt": "/MultiplicateIt/static/js/2.a39b87cd.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.f3980711.js",
     "static/js/2.a39b87cd.chunk.js",
     "static/css/main.934e14e6.chunk.css",
-    "static/js/main.7c15100d.chunk.js"
+    "static/js/main.456bb9fc.chunk.js"
   ]
 }
