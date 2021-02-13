@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { Paper } from '@material-ui/core';
 import styled from 'styled-components'
 import '../index.css';
-import GameLogic from './GameLogic';
+import { GameLogic } from './GameLogic';
+
 
 const Container = styled.div`
   display: flex;
@@ -50,11 +51,12 @@ const settings = [
 ]
 
 const Game = props => {
-  const currentSetting = settings.findIndex(x => x.type === props.match.params.difficulty);
-  const [currenRound, setCurrenRound] = useState(1);
+  const settingId = settings.findIndex(x => x.type === props.match.params.difficulty);
+  const currentSetting = settingId === -1 ? 0 : settingId;
+  const [currentRound, setCurrentRound] = useState(1);
 
   const updateRound = round => {
-    setCurrenRound(round);
+    setCurrentRound(round);
   }
 
   return (
@@ -63,10 +65,10 @@ const Game = props => {
         <Topbar>
           <TopbarInfo>{props.match.params.difficulty.toUpperCase()}</TopbarInfo>
           <Title>MultiplicateIt !</Title>
-          <TopbarInfo>{`${currenRound}/${settings[currentSetting].rounds}`}</TopbarInfo>
+          <TopbarInfo>{`${currentRound}/${settings[currentSetting].rounds}`}</TopbarInfo>
         </Topbar>
         <PaperContainer>
-          <GameLogic settings={settings[currentSetting]} round={currenRound} updateRound={updateRound} />
+          <GameLogic settings={settings[currentSetting]} round={currentRound} updateRound={updateRound} />
         </PaperContainer>
       </Paper>
     </Container>

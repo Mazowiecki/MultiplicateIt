@@ -6,6 +6,7 @@ import '../index.css';
 import { setResult, setTime, setOne, setTwo } from '../Redux/actions';
 import { useDispatch, useSelector } from 'react-redux';
 import DisplayResults from './DisplayResults';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Counter = styled.div`
   font-size: 200px;
-  color: lightcoral;
+  color: #f08080;
   font-weight: bold;
 `;
 
@@ -52,9 +53,12 @@ const TaskContent = styled.div`
   align-items: center;
 `;
 
+const StartButton = styled(Button)`
+  margin-bottom: 10px;
+`;
 
 
-const GameLogic = props => {
+export const GameLogic = props => {
   let { settings, round, updateRound } = props;
   const dispatch = useDispatch();
   const classes = useStyles();
@@ -111,18 +115,22 @@ const GameLogic = props => {
       setAnswerTimeDisplay(answerTime);
       dispatch(setTime(answerTime));
       if (answerTime <= 0) {
-        clearInterval(answerInterval);
-        if (round !== settings.rounds + 1) {
-          setDisabledSubmit(false);
-          startAnswerCounter();
-        } else {
-          setShowTask(false);
-          setShowResults(true);
-        }
+        nextRound(answerInterval);
       } else {
         answerTime--;
       }
     }, 1000);
+  }
+
+  const nextRound = (interval) => {
+    clearInterval(interval);
+    if (round !== settings.rounds + 1) {
+      setDisabledSubmit(false);
+      startAnswerCounter();
+    } else {
+      setShowTask(false);
+      setShowResults(true);
+    }
   }
 
   const handleChangeInput = event => {
@@ -150,7 +158,14 @@ const GameLogic = props => {
 
   return (
     <>
-      { showStart ? <Button onClick={() => {setShowStart(false); startCounter();}} variant="contained" color="secondary">Start</Button> : null }
+      { showStart ?
+        <>
+          <StartButton onClick={() => {setShowStart(false); startCounter();}} variant="contained" color="secondary">Start</StartButton>
+          <Link to={'/'}>
+            <Button variant="contained" color="secondary">Home</Button>
+          </Link>
+        </>
+        : null }
       { showCounter ? <Counter>{counter}</Counter> : null}
       { showTask ?
         <>
@@ -171,5 +186,3 @@ const GameLogic = props => {
     </>
   );
 };
-
-export default GameLogic;

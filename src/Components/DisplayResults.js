@@ -8,7 +8,11 @@ const DisplayResults = props => {
   const [displayResults, setDisplayResults] = useState([]);
 
   useEffect(() => {
-    let totalPoints = 0;
+    generateResults();
+  }, [props]);
+
+  const generateResults = () => {
+    let points = 0;
     for (const result of results) {
       if (settings.difficulty === 'easy') {
         if ((result.numberOne * result.numberTwo) == result.userResult) {
@@ -36,11 +40,11 @@ const DisplayResults = props => {
           result.false = true
         }
       }
-      totalPoints += result.points;
+      points += result.points;
     }
     setDisplayResults(results);
-    setTotalPoints(totalPoints);
-  }, [props]);
+    setTotalPoints(points);
+  }
 
   return (
     <>

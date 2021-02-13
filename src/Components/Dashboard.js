@@ -41,13 +41,13 @@ const Dashboard = () => {
           <Title>MultiplicateIt !</Title>
           <p>Choose difficulty:</p>
           <DifficultyContainer className='buttonsContainer'>
-            <Link to={'/game/easy'}>
+            <Link to={'/easy'}>
               <Button variant="contained">Easy</Button>
             </Link>
-            <Link to={'/game/normal'}>
+            <Link to={'/normal'}>
               <Button variant="contained" color="primary">Normal</Button>
             </Link>
-            <Link to={'/game/hard'}>
+            <Link to={'/hard'}>
               <Button variant="contained" color="secondary">Hard</Button>
             </Link>
           </DifficultyContainer>
