@@ -16,12 +16,16 @@ const useStyles = makeStyles((theme) => ({
       flexDirection: 'column',
       alignItems: 'center'
     },
-    '& > .input': {
-      width: '20px!important',
-      fontSize: '20px!important',
-    },
     '& > button': {
       marginTop: '20px'
+    },
+    '& .MuiTextField-root': {
+      width: 100,
+      '& input': {
+        fontSize: '25px!important',
+        fontWeight: '700',
+        textAlign: 'center!important'
+      }
     },
   },
 }));
@@ -157,12 +161,12 @@ export const GameLogic = props => {
 
 
   return (
-    <>
+    <div className={classes.root}>
       { showStart ?
         <>
-          <StartButton onClick={() => {setShowStart(false); startCounter();}} variant="contained" color="secondary">Start</StartButton>
+          <StartButton size='large' onClick={() => {setShowStart(false); startCounter();}} variant="contained" color="secondary">Start</StartButton>
           <Link to={'/'}>
-            <Button variant="contained" color="secondary">Home</Button>
+            <Button size='small' variant="outlined" color="primary">Home</Button>
           </Link>
         </>
         : null }
@@ -175,14 +179,14 @@ export const GameLogic = props => {
             <TaskContent>
               <form onSubmit={handleSubmit} className={classes.root} noValidate autoComplete="off">
                 <TextField className='input' required id="standard-basic" maxLength="2" value={userResult} onChange={handleChangeInput}/>
-                <Button  disabled={disabledSubmit} type="submit" variant="outlined">Save</Button>
+                <Button disabled={disabledSubmit} type="submit" variant="outlined">Save</Button>
               </form>
             </TaskContent>
           </Content>
-          <CircularProgress className="progress" variant="static" value={answerTimeDisplay * settings.timeMultiply} />
+          <CircularProgress className="progress" variant="determinate" value={answerTimeDisplay * settings.timeMultiply} />
         </>
         : null }
       { showResults ? <DisplayResults results={finalResults} settings={settings}/> : null }
-    </>
+    </div>
   );
-};
+}

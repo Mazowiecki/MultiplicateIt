@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import '../index.css';
 import { GameLogic } from './GameLogic';
 
-
 const Container = styled.div`
   display: flex;
   justify-content: center;

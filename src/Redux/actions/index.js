@@ -17,3 +17,8 @@ export const setResult = (value = 0) => ({
   type: 'SETRESULT',
   value: value
 });
+
+export const setNick = (value = '') => ({
+  type: 'SETNICK',
+  value: value
+});

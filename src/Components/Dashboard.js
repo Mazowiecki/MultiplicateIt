@@ -1,8 +1,20 @@
 import React from 'react';
-import { Paper, Button } from '@material-ui/core';
+import { Paper, Button, TextField } from '@material-ui/core';
 import styled from 'styled-components'
 import '../index.css';
 import { Link } from 'react-router-dom';
+import { setNick } from '../Redux/actions';
+import { useDispatch, useSelector } from 'react-redux';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    '& .MuiTextField-root': {
+      margin: '20px 0 10px 0',
+      width: '100%'
+    },
+  },
+}));
 
 const Container = styled.div`
   display: flex;
@@ -34,11 +46,20 @@ const DifficultyContainer = styled.div`
 
 
 const Dashboard = () => {
+  const classes = useStyles();
+  const dispatch = useDispatch();
+  const userNick = useSelector(state => state.getNick);
+
+  const handleSaveNick = event => {
+    dispatch(setNick(event.target.value));
+  }
+
   return (
-    <Container>
+    <Container className={classes.root}>
       <Paper elevation={3}>
         <PaperContainer>
           <Title>MultiplicateIt !</Title>
+          <TextField onChange={handleSaveNick} id="outlined-basic" label="Nick" variant="outlined" size={"small"} defaultValue={userNick} />
           <p>Choose difficulty:</p>
           <DifficultyContainer className='buttonsContainer'>
             <Link to={'/easy'}>
