@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import { Grid, Tabs, Tab, Paper, Typography, Box } from '@material-ui/core';
+import {Grid, Tabs, Tab, Paper, Typography, Box, Button} from '@material-ui/core';
 import '../index.css';
 import { useSelector } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
+import {Link} from "react-router-dom";
 
 const useStyles = makeStyles({
   root: {
@@ -46,7 +47,6 @@ const DisplayResults = props => {
 
   useEffect(() => {
     generateResults();
-    putLeaderBoard();
   }, [results]);
 
   const getLeaderBoard = () => {
@@ -60,11 +60,10 @@ const DisplayResults = props => {
       .then(response => response.json())
       .then(res => {
         setLeaderBoardData(res.data);
-        console.log(res);
       });
   };
 
-  const putLeaderBoard = () => {
+  const putLeaderBoard = (points) => {
     fetch('http://localhost:5000/putLeaderBoard', {
       crossDomain: true,
       method: 'PUT',
@@ -73,12 +72,11 @@ const DisplayResults = props => {
       },
       body: JSON.stringify({
         nick: userNick,
-        points: totalPoints
+        points: points
       })
     })
       .then(res => {
         getLeaderBoard();
-        // console.log(res);
       });
   }
 
@@ -115,6 +113,7 @@ const DisplayResults = props => {
     }
     setDisplayResults(results);
     setTotalPoints(points);
+    putLeaderBoard(points);
   }
 
   return (
@@ -127,8 +126,8 @@ const DisplayResults = props => {
           textColor="primary"
           centered
         >
-          <Tab label="Item One" />
-          <Tab label="Item Two" />
+          <Tab label="Results" />
+          <Tab label="LeaderBoard" />
         </Tabs>
       </Paper>
       <TabPanel value={value} index={0}>
@@ -141,12 +140,15 @@ const DisplayResults = props => {
             <>
               <Grid item xs={3}><p>{`Operation nr ${index+1}:`}</p></Grid>
               <Grid item xs={3}><p>{`${result.numberOne} * ${result.numberTwo}`}</p></Grid>
-              <Grid item xs={3}><p className={(result.false ? 'false' : '')}>{result.false ? result.userResult === -1 ? 'no result': <><del>{result.userResult}</del> {result.numberOne * result.numberTwo}</> : `   ${result.userResult}`}</p></Grid>
+              <Grid item xs={3}><p className={(result.false ? 'false' : '')}>{result.false ? result.userResult === -1 ? 'no result': <p><del>{result.userResult}</del> {result.numberOne * result.numberTwo}</p> : `   ${result.userResult}`}</p></Grid>
               <Grid item xs={3}><p>{`   ${result.points}`}</p></Grid>
             </>
           ))}
         </Grid>
         <p>{`All points: ${totalPoints}`}</p>
+        <Link to={'/'}>
+          <Button size='medium' variant="outlined" color="primary">Home</Button>
+        </Link>
       </TabPanel>
       <TabPanel value={value} index={1}>
         <Grid container spacing={1}>
@@ -159,6 +161,9 @@ const DisplayResults = props => {
             </>
           ))}
         </Grid>
+        <Link to={'/'}>
+          <Button size='medium' variant="outlined" color="primary">Home</Button>
+        </Link>
       </TabPanel>
     </>
   );

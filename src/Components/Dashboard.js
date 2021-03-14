@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { Paper, Button, TextField } from '@material-ui/core';
 import styled from 'styled-components'
 import '../index.css';
@@ -62,14 +62,14 @@ const Dashboard = () => {
           <TextField onChange={handleSaveNick} id="outlined-basic" label="Nick" variant="outlined" size={"small"} defaultValue={userNick} />
           <p>Choose difficulty:</p>
           <DifficultyContainer className='buttonsContainer'>
-            <Link to={'/easy'}>
-              <Button variant="contained">Easy</Button>
+            <Link to={userNick ? '/easy' : '#'}>
+              <Button disabled={!userNick.length} variant="contained">Easy</Button>
             </Link>
-            <Link to={'/normal'}>
-              <Button variant="contained" color="primary">Normal</Button>
+            <Link to={userNick ? '/normal' : '#'}>
+              <Button disabled={!userNick.length} variant="contained" color="primary">Normal</Button>
             </Link>
-            <Link to={'/hard'}>
-              <Button variant="contained" color="secondary">Hard</Button>
+            <Link to={userNick ? '/hard' : '#'}>
+              <Button disabled={!userNick.length} variant="contained" color="secondary">Hard</Button>
             </Link>
           </DifficultyContainer>
         </PaperContainer>
