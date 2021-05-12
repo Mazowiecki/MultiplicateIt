@@ -5,8 +5,8 @@ import styled from 'styled-components';
 import '../index.css';
 import { setResult, setTime, setOne, setTwo } from '../Redux/actions';
 import { useDispatch, useSelector } from 'react-redux';
-import DisplayResults from './DisplayResults';
 import { Link } from 'react-router-dom';
+import DisplayResults from './DisplayResults';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -88,8 +88,8 @@ export const GameLogic = props => {
     if (showResults) {
       roundHelper++;
     }
-    if ((finalResults.length != roundHelper-1)) {
-      setFinalResults(finalResults => [...finalResults, {numberOne: getOne, numberTwo: getTwo, userResult: -1, time: null}]);
+    if ((finalResults.length != roundHelper -1)) {
+      setFinalResults(finalResults => [...finalResults, { numberOne: getOne, numberTwo: getTwo, userResult: -1, time: null }]);
     }
     setUserResult('');
   }, [round, showResults]);

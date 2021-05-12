@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from 'react';
-import {Grid, Tabs, Tab, Paper, Typography, Box, Button} from '@material-ui/core';
+import React, { useEffect, useState } from 'react';
+import { Grid, Tabs, Tab, Paper, Typography, Box, Button } from '@material-ui/core';
 import '../index.css';
 import { useSelector } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
-import {Link} from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
   root: {

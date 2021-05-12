@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import { Paper, Button, TextField } from '@material-ui/core';
 import styled from 'styled-components'
 import '../index.css';
